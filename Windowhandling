@@ -1,0 +1,32 @@
+WebElement serachtab = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+
+serachtab.sendKeys("Famous Five Books");
+
+
+WebElement submit = driver.findElement(By.xpath("//input[@id='nav-search-submit-button']"));
+
+submit.click();
+
+
+WebElement famousfivebook =driver.findElement(By.xpath("//span[contains(text(),'FAMOUS FIVE: 01: FIVE ON A TREASURE ISLAND (STANDARD)')]"));
+
+famousfivebook.click();
+
+
+Set<String> winhandles = driver.getWindowHandles();
+
+for(String win : winhandles)
+{
+	System.out.println(win);
+	
+	//First 
+	// Second window
+	
+	driver.switchTo().window(win);
+}
+
+WebElement addtocart =driver.findElement(By.xpath("//input[@id='add-to-cart-button']"));
+
+addtocart.click();
+
+}
